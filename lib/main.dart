@@ -4,7 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp_Beginner());
+  //runApp(MyApp_Beginner());
+  runApp(MyApp_Widget());
 }
 
 class MyApp_Beginner extends StatelessWidget {
@@ -114,6 +115,57 @@ class MyApp_Beginner extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(),
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class MyApp_Widget extends StatelessWidget {
+  const MyApp_Widget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // Place this inside the MaterialApp properties
+      home: Scaffold(
+        backgroundColor: Colors.blue[200],
+        appBar: AppBar(
+          title: Text("My First App"),
+          centerTitle: true,
+          backgroundColor: Colors.blue[300],
+          elevation: 0,
+          leading: Icon(Icons.menu),
+          actions: [
+            IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          ],
+        ),
+        body: Center(
+          child: Container(
+            width: 300,
+            height: 300,
+            //color: Colors.amber[200],
+            decoration: BoxDecoration(
+              color: Colors.blue.shade100,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: 25, 
+              vertical: 50
+            ),
+            /*child: Text(
+              "Esmeralda",
+              style: TextStyle(
+                fontSize: 30 
+              ),
+            ),
+            */
+            child: Icon(
+              Icons.headphones,
+              size: 100,
+              color: Colors.brown[300],
+            ),
+          ),  
+        ),
+      ),
     );
   }
 }
