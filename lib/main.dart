@@ -1,7 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MyApp_Beginner());
+  runApp(MyApp_Beginner());
 }
 
 class MyApp_Beginner extends StatelessWidget {
@@ -46,8 +48,35 @@ class MyApp_Beginner extends StatelessWidget {
   Widget build(BuildContext context) {
     if (age >= 18){
       print("you are an adult");
-    } else {
+    } else if (age < 18){
       print("you are a minor");
+    } else {
+      print("you are a beginner");
+    }
+
+    List<String> grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+    Random random = Random();
+    String grade = grades[random.nextInt(grades.length)];
+    switch (grade) {
+      case "A":
+        print("Excellent!");    
+        break;
+      case "B":
+        print("Good!");
+        break;
+      case "C":
+        print("Fair!");
+        break;
+      case "D":
+        print("Not Good!");
+        break;
+      case "E":
+        print("Poor!");
+        break;
+      case "F":
+        print("Fail!");
+        break;
+      default:
     }
 
     return MaterialApp(
