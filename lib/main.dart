@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -44,8 +45,32 @@ class MyApp_Beginner extends StatelessWidget {
   ^                 xor
   */
 
+  // function
+  void greet() {
+    print("Hello, $name");
+  }
+
+  // function with parameters
+  void greetP(String name, int age) {
+    print("Hello, $name, you are $age years old");
+  }
+
+  // function with returnvalue
+  int add(int a, int b) {
+    return a + b;
+  }
+
   @override
   Widget build(BuildContext context) {
+    greet();
+    greetP(name, age);
+
+    int i = add(1, 2);
+    print(i);
+    //print Strings as parameters
+    String output = "$name is $age";
+    print(output);
+
     // Condition
     if (age >= 18){
       print("you are an adult");
