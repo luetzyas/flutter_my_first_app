@@ -46,6 +46,7 @@ class MyApp_Beginner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Condition
     if (age >= 18){
       print("you are an adult");
     } else if (age < 18){
@@ -54,6 +55,7 @@ class MyApp_Beginner extends StatelessWidget {
       print("you are a beginner");
     }
 
+    // Switch
     List<String> grades = ['A', 'B', 'C', 'D', 'E', 'F'];
     Random random = Random();
     String grade = grades[random.nextInt(grades.length)];
@@ -77,6 +79,11 @@ class MyApp_Beginner extends StatelessWidget {
         print("Fail!");
         break;
       default:
+    }
+
+    // Loops
+    for (var i = 0; i < 5; i++) {
+      print("Loop $i");
     }
 
     return MaterialApp(
