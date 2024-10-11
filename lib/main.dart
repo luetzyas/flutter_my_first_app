@@ -1,15 +1,20 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_my_first_app/pages/first_page.dart';
+import 'package:flutter_my_first_app/pages/home_page.dart';
+import 'package:flutter_my_first_app/pages/profile_page.dart';
+import 'package:flutter_my_first_app/pages/second_page.dart';
+import 'package:flutter_my_first_app/pages/settings_page.dart';
 
 void main() {
-  //runApp(MyApp_Beginner());
-  runApp(MyApp_Widget());
+  //runApp(MyAppBeginner());
+  //runApp(MyAppWidget());
+  runApp(const MyAppNavigation());
 }
 
-class MyApp_Beginner extends StatelessWidget {
-  MyApp_Beginner({super.key});
+class MyAppBeginner extends StatelessWidget {
+  MyAppBeginner({super.key});
 
   //Variables https://dart.dev/language/variables
   String name = "Esmeralda";
@@ -119,8 +124,8 @@ class MyApp_Beginner extends StatelessWidget {
   }
 }
 
-class MyApp_Widget extends StatelessWidget {
-  MyApp_Widget({super.key});
+class MyAppWidget extends StatelessWidget {
+  MyAppWidget({super.key});
 
   //List for Listview
   List names = ["Esmeralda", "Stefan", "Joshua", "Roland"];
@@ -302,6 +307,25 @@ class MyApp_Widget extends StatelessWidget {
           ),
         ),*/
       ),
+    );
+  }
+}
+
+class MyAppNavigation extends StatelessWidget {
+  const MyAppNavigation({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Firstpage(),
+      routes: {
+        '/firstpage': (context) => Firstpage(),
+        '/secondpage': (context) => SecondPage(),
+        '/homepage': (context) => HomePage(),
+        '/settingspage': (context) => SettingsPage(),
+        '/profilepage': (context) => ProfilePage(),
+      }
     );
   }
 }
