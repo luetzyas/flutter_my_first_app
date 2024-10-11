@@ -120,7 +120,18 @@ class MyApp_Beginner extends StatelessWidget {
 }
 
 class MyApp_Widget extends StatelessWidget {
-  const MyApp_Widget({super.key});
+  MyApp_Widget({super.key});
+
+  //List for Listview
+  List names = ["Esmeralda", "Stefan", "Joshua", "Roland"];
+
+  //onTab() function
+  void userTapped() {
+    print("User tapped");
+  }
+  void userDoubleTapped() {
+    print("User double tapped");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +149,8 @@ class MyApp_Widget extends StatelessWidget {
             IconButton(icon: Icon(Icons.search), onPressed: () {}),
           ],
         ),
-        body: Center(
+        // body base
+        /*body: Center(
           child: Container(
             width: 300,
             height: 300,
@@ -165,6 +177,130 @@ class MyApp_Widget extends StatelessWidget {
             ),
           ),  
         ),
+        */
+        // body column
+        /*body: Column(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.blue[600],
+              )
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                color: Colors.blue[400],
+              )
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.blue[100],
+              )
+            )
+          ],
+        ),*/
+        // body list, because Column with fix height = overfloat
+        /*body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            Container(
+              height: 100,
+              child: Container(
+                color: Colors.blue[600],
+              )
+            ),
+            Container(
+              height: 100,
+              child: Container(
+                color: Colors.blue[400],
+              )
+            ),
+            Container(
+              height: 100,
+              child: Container(
+                color: Colors.blue[100],
+              )
+            )
+          ],
+        ),*/
+        //use Listview builder
+        /*body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder:(context, index) => ListTile(
+            //title: Text(index.toString()),
+            title: Text(names[index]),
+          )
+        )*/
+        //GridView
+        /*body: GridView.builder(
+          itemCount: 64,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+          itemBuilder: (context, index) => Container(
+            color: Colors.blue[600],
+            margin: EdgeInsets.all(2),
+          ),
+        ),*/
+        // Stack
+        /*body: Stack(
+          alignment: Alignment.center,
+          children: [
+            //big box
+            Container(
+              height: 300,
+              width: 300,
+              color: Colors.lightGreen[600],
+            ),
+            //medium box
+            Container(
+              height: 200,
+              width: 200,
+              color: Colors.lightGreen[700],
+            ),
+            //small box
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.lightGreen[800],
+            ),
+          ]
+        )*/
+        // body with onTab()
+        /*body: Center(
+          child: GestureDetector(
+            onTap: () {
+              print("User Tapped");
+            },
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.green[500],
+              child: Center(
+                child: Text("Tap Me"),
+              ),
+            ),
+          ),
+        ),*/
+        // Gesture with function
+        /*body: Center(
+          child: GestureDetector(
+            onDoubleTap: () {
+              userDoubleTapped();
+            },
+            onTap: () {
+              userTapped();
+            },
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.green[500],
+              child: Center(
+                child: Text("Tap Me"),
+              ),
+            ),
+          ),
+        ),*/
       ),
     );
   }
